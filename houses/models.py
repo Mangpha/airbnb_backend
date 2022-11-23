@@ -15,5 +15,5 @@ class House(models.Model):
     address = models.CharField(max_length=140)
     pets_allowed = models.BooleanField(default=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
