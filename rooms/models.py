@@ -1,4 +1,5 @@
 from django.db import models
+from common.models import CommonModel
 from users.models import User
 
 # Create your models here.
@@ -10,7 +11,7 @@ class RoomKindChoices(models.TextChoices):
     SHARED_ROOM = ("shared_room", "Shared Room")
 
 
-class Amenity(models.Model):
+class Amenity(CommonModel):
     """
     Amenity Model Definition
     """
@@ -24,7 +25,7 @@ class Amenity(models.Model):
     )
 
 
-class Room(models.Model):
+class Room(CommonModel):
     """
     Room Model Definition
     """
@@ -56,9 +57,3 @@ class Room(models.Model):
         on_delete=models.CASCADE,
     )
     amenities = models.ManyToManyField(Amenity)
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True,
-    )
