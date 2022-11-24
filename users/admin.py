@@ -15,7 +15,17 @@ class CustomUserAdmin(UserAdmin):
         (
             "Profile",
             {
-                "fields": ("username", "password", "name", "email", "is_host"),
+                "fields": (
+                    "avatar",
+                    "username",
+                    "password",
+                    "name",
+                    "email",
+                    "gender",
+                    "language",
+                    "currency",
+                    "is_host",
+                ),
                 "classes": ("wide",),
             },
         ),
@@ -35,7 +45,10 @@ class CustomUserAdmin(UserAdmin):
         (
             ("Important dates"),
             {
-                "fields": ("last_login", "date_joined"),
+                "fields": (
+                    "last_login",
+                    "date_joined",
+                ),
                 "classes": ("collapse",),
             },
         ),
