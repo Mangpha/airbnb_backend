@@ -1,3 +1,32 @@
 from django.contrib import admin
+from experiences.models import Experience, Perk
 
 # Register your models here.
+
+
+@admin.register(Experience)
+class ExperienceAdmin(admin.ModelAdmin):
+    """
+    Experience Admin Definition
+    """
+
+    list_display = (
+        "name",
+        "price",
+        "start",
+        "end",
+        "created_at",
+    )
+
+
+@admin.register(Perk)
+class PerkAdmin(admin.ModelAdmin):
+    """
+    Perk Admin Definition
+    """
+
+    list_display = (
+        "name",
+        "details",
+        "explanation",
+    )
