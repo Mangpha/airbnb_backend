@@ -1,4 +1,5 @@
 from django.contrib import admin
+from categories.models import Category
 
 from rooms.models import Amenity, Room
 
@@ -31,6 +32,11 @@ class RoomAdmin(admin.ModelAdmin):
         "created_at",
         "updated_at",
     )
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(RoomAdmin, self).get_form(request, obj, **kwargs)
+        form.base_fields["category"].queryset = Category.objects.filter(kind="rooms")
+        return form
 
 
 @admin.register(Amenity)
